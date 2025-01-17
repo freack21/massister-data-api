@@ -5,7 +5,7 @@ module.exports = async () => {
   try {
     const browser = await puppeteer.launch({
       executablePath: CONFIG.chrome || "/usr/bin/google-chrome-stable",
-      headless: false,
+      headless: true,
       defaultViewport: null,
       args: ["--no-sandbox", "--disable-setuid-sandbox", "--start-maximized"],
     });
