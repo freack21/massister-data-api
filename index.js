@@ -31,6 +31,9 @@ launchChrome()
 
     app.get("/search", async (req, res) => {
       const keyword = req.query.q;
+      if (!keyword) {
+        return res.status(400).json({ message: "'q' is required!" });
+      }
       const page = await browser.newPage();
       try {
         await page.goto("https://www.bing.com/search?q=" + keyword, {
